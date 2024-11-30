@@ -13,8 +13,7 @@ def recurse(stateA, stateB, move_count, max_it):
     # Transitions for A:
     if stateA == 0:
         # A = 0 can transition to A = 1
-        move_count = move_count + 1
-        ways += recurse(1, stateB, move_count, max_it)
+        ways += recurse(1, stateB, move_count + 1, max_it)
 
     # Transitions for B:
     if stateB == 0:
@@ -42,3 +41,8 @@ def recurse(stateA, stateB, move_count, max_it):
 # Test cases
 
 print(recurse(0, 2, 0, 2))  # Expected result: 2
+print(recurse(0, 2, 0, 1))  # Expected: 1
+print(recurse(0, 2, 0, 2))  # Expected: 2
+print(recurse(0, 2, 0, 3))  # Expected: 4
+print(recurse(0, 2, 0, 5))  # Expected: 12
+print(recurse(0, 2, 0, 10)) # Expected: 162
